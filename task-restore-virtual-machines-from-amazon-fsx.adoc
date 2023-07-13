@@ -1,0 +1,74 @@
+---
+permalink: task-restore-virtual-machines-from-amazon-fsx.html 
+sidebar: sidebar 
+keywords: restore, virtual machines, amazon fsx 
+summary: Lorsque vous restaurez une machine virtuelle, vous pouvez remplacer le contenu existant par la copie de sauvegarde que vous sélectionnez ou faire une copie de la machine virtuelle. 
+---
+= Restauration des machines virtuelles à partir d'Amazon FSX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous restaurez une machine virtuelle, vous pouvez remplacer le contenu existant par la copie de sauvegarde que vous sélectionnez ou faire une copie de la machine virtuelle.
+
+.Avant de commencer
+* Une sauvegarde doit exister.
++
+Vous devez avoir créé une sauvegarde de l'ordinateur virtuel à l'aide de la sauvegarde et de la restauration BlueXP pour les machines virtuelles avant de pouvoir restaurer l'ordinateur virtuel.
+
++
+[NOTE]
+====
+Les opérations de restauration ne peuvent pas se terminer correctement si des copies Snapshot de la machine virtuelle ont été effectuées par un logiciel autre que la sauvegarde et la restauration BlueXP pour les machines virtuelles.
+
+====
+* La machine virtuelle ne doit pas être en transit.
++
+La machine virtuelle à restaurer ne doit pas se trouver dans un état vMotion ou Storage vMotion.
+
+* Erreurs de configuration DE LA HAUTE DISPONIBILITÉ.
++
+Assurez-vous qu'aucune erreur de configuration HA ne s'affiche sur l'écran récapitulatif de l'hôte vCenter ESXi avant de restaurer les sauvegardes à un autre emplacement.
+
+
+
+.Description de la tâche
+* La machine virtuelle n'est pas enregistrée et est de nouveau enregistrée.
++
+L'opération de restauration pour les machines virtuelles annule l'enregistrement de la machine virtuelle d'origine, restaure la machine virtuelle à partir d'une copie Snapshot de sauvegarde et enregistre la machine virtuelle restaurée avec le même nom et la même configuration sur le même serveur ESXi. Vous devez ajouter manuellement les machines virtuelles aux groupes de ressources après la restauration.
+
+* Restauration des datastores
++
+Vous ne pouvez pas restaurer un datastore, mais vous pouvez restaurer n'importe quelle machine virtuelle du datastore.
+
+* Défaillances des snapshots de cohérence VMware pour une machine virtuelle.
++
+Même en cas de défaillance d'un snapshot de cohérence VMware pour une machine virtuelle, la machine virtuelle est néanmoins sauvegardée. Vous pouvez afficher les entités contenues dans la copie de sauvegarde dans l'assistant de restauration et l'utiliser pour les opérations de restauration.
+
+
+
+.Étapes
+. Dans l'interface graphique du client Web VMware vSphere, cliquez sur *Menu* dans la barre d'outils, cliquez sur *Inventaire*, puis sélectionnez *machines virtuelles et modèles*.
+. Dans le volet de gauche du navigateur, cliquez avec le bouton droit de la souris sur une *machine virtuelle*, puis sélectionnez *NetApp Cloud Backup* dans la liste déroulante, puis sélectionnez *Restaurer* pour démarrer l'assistant.
+. Dans l'assistant *Restore*, sur la page *Select Backup*, sélectionnez la copie Snapshot de sauvegarde que vous souhaitez restaurer.
++
+Vous pouvez rechercher un nom de sauvegarde spécifique ou un nom de sauvegarde partiel, ou filtrer la liste des sauvegardes en cliquant sur l'icône du filtre et en sélectionnant une plage de dates et d'heures, en sélectionnant si vous souhaitez que les sauvegardes contiennent des snapshots VMware, si vous souhaitez des sauvegardes montées ou l'emplacement. Cliquez sur *OK* pour revenir à l'assistant.
+
+. Sur la page *Select Scope*, sélectionnez *Entire Virtual machine* dans le champ *Restore scope*, puis sélectionnez l'emplacement de restauration, puis entrez les informations ESXi de destination où la sauvegarde doit être montée.
++
+Lors de la restauration de sauvegardes partielles, l'opération de restauration ignore la page *Select Scope*.
+
+. Cochez la case *redémarrer VM* si vous souhaitez que la machine virtuelle soit sous tension après l'opération de restauration.
+. Sur la page *Sélectionner l'emplacement*, sélectionnez l'emplacement du datastore restauré.
+. Consultez la page *Résumé*, puis cliquez sur *Terminer*.
+. *Facultatif* : surveillez la progression de l'opération en cliquant sur *tâches récentes* en bas de l'écran.
+
+
+.Une fois que vous avez terminé
+* Ajouter des machines virtuelles restaurées à des groupes de ressources.
++
+Bien que les machines virtuelles soient restaurées, elles ne sont pas automatiquement ajoutées à leurs anciens groupes de ressources. Par conséquent, vous devez ajouter manuellement les machines virtuelles restaurées aux groupes de ressources appropriés.
+
+

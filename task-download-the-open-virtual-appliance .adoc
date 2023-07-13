@@ -1,0 +1,47 @@
+---
+permalink: task-download-the-open-virtual-appliance.html 
+sidebar: sidebar 
+keywords: download, open virtual appliance 
+summary: 'Avant d"installer Open Virtual Appliance (OVA), ajoutez le certificat à vCenter. Le fichier .tar contient les certificats OVA et Entrust Root et Intermediate, les certificats se trouvent dans le dossier certificats. Le déploiement OVA est pris en charge dans VMware vCenter 8.0 et versions ultérieures.' 
+---
+= Télécharger Open Virtual Appliance (OVA)
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'installer Open Virtual Appliance (OVA), ajoutez le certificat à vCenter. Le `.tar` Le fichier contient les certificats OVA et Entrust Root et Intermediate, les certificats se trouvent dans le dossier certificats. Le déploiement OVA est pris en charge dans VMware vCenter 8.0 et versions ultérieures.
+
+Si l'OVA signée par le certificat Entrust n'est pas fiable, vous devez effectuer la procédure suivante pour résoudre le problème.
+
+.Étapes
+. Pour télécharger la sauvegarde et la restauration BlueXP pour les VM OVA :
++
+** Connectez-vous au https://mysupport.netapp.com/products/index.html["Site de support NetApp"^]
+** Dans la liste de produits, sélectionnez *BlueXP Backup and Recovery for VMs*, puis cliquez sur le bouton *Télécharger la dernière version*.
+** Téléchargez la sauvegarde et la restauration BlueXP pour les VM `.tar` fichier à n'importe quel emplacement.
+
+
+. Extraire le contenu du fichier tar. Le fichier tar contient le dossier OVA et certs. Le dossier certificats contient les certificats racine et intermédiaire Entrust.
+. Connectez-vous à VMC sur AWS à l'aide des informations d'identification du client vSphere.
+. Accédez au menu Administration[certificats > gestion des certificats].
+. En regard de *certificats racine de confiance*, cliquez sur *Ajouter*.
++
+** Accédez au dossier certs.
+** Sélectionnez les certificats racine et intermédiaire Entrust.
+** Installez chaque certificat un par un.
+
+
+. Les certificats sont ajoutés à un panneau sous certificats racine approuvés.
++
+Une fois les certificats installés, une OVA peut être vérifiée et déployée.
+
+
+
+[NOTE]
+====
+Si l'OVA téléchargée n'est pas falsifiée, la colonne Éditeur affiche certificat approuvé.
+
+====

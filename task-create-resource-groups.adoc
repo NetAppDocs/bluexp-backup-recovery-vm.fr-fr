@@ -1,0 +1,150 @@
+---
+permalink: task-create-resource-groups.html 
+sidebar: sidebar 
+keywords: create, resource, groups 
+summary: Un groupe de ressources est le conteneur des machines virtuelles et des datastores que vous souhaitez protéger. 
+---
+= Créer des groupes de ressources
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un groupe de ressources est le conteneur des machines virtuelles et des datastores que vous souhaitez protéger.
+
+Pour tous les groupes de ressources, n'ajoutez pas de machines virtuelles à l'état inaccessible. Bien qu'il soit possible de créer un groupe de ressources contenant des machines virtuelles inaccessibles, les sauvegardes de ce groupe de ressources échoueront.
+
+.Description de la tâche
+Vous pouvez à tout moment ajouter ou supprimer des ressources d'un groupe de ressources.
+
+* La sauvegarde d'une seule ressource
++
+Pour sauvegarder une seule ressource (par exemple, une seule machine virtuelle), vous devez créer un groupe de ressources qui contient cette seule ressource.
+
+* La sauvegarde de plusieurs ressources
++
+Pour sauvegarder plusieurs ressources, vous devez créer un groupe de ressources contenant plusieurs ressources.
+
+* Optimisez les copies Snapshot
++
+Pour optimiser les copies Snapshot, vous devez regrouper les machines virtuelles et les datastores associés au même volume dans un seul groupe de ressources.
+
+* Politiques de sauvegarde
++
+Bien qu'il soit possible de créer un groupe de ressources sans stratégie de sauvegarde, vous ne pouvez exécuter que des opérations de protection des données planifiées lorsqu'au moins une stratégie est attachée au groupe de ressources. Vous pouvez utiliser une stratégie existante ou créer une nouvelle stratégie lors de la création d'un groupe de ressources.
+
+* Contrôles de compatibilité
++
+La sauvegarde et la restauration BlueXP pour les VM effectuent des contrôles de compatibilité lorsque vous créez un groupe de ressources. Les raisons de l'incompatibilité peuvent être :
+
++
+** Les VMDK se trouvent sur un système de stockage non pris en charge
+** Un périphérique PCI partagé est connecté à une machine virtuelle.
+
+
+
+
+.Étapes
+. Dans le volet gauche du navigateur de la sauvegarde et de la restauration BlueXP pour les machines virtuelles, cliquez sur *Resource Groups*.
+. Sur la page *groupes de ressources*, cliquez sur *Créer* pour lancer l'assistant.
++
+image:Resource group.png[""]
+
++
+C'est la façon la plus simple de créer un groupe de ressources. Toutefois, vous pouvez également créer un groupe de ressources avec une ressource en effectuant l'une des opérations suivantes :
+
++
+** Pour créer un groupe de ressources pour une machine virtuelle, cliquez sur menu:Menu[hôtes et clusters], puis cliquez avec le bouton droit de la souris sur une machine virtuelle, sélectionnez sauvegarde et restauration BlueXP pour les machines virtuelles, puis cliquez sur *Créer*.
+** Pour créer un groupe de ressources pour un datastore, cliquez sur menu:Menu[hôtes et clusters], puis cliquez avec le bouton droit de la souris sur un datastore, sélectionnez BlueXP Backup and Recovery for VMs, puis cliquez sur *Create*.
+
+
+. Sur la page *informations générales et notification* de l'assistant, entrez les valeurs requises.
+. Sur la page *Ressources*, procédez comme suit :
++
+[cols="50,50"]
+|===
+| Pour ce champ… | Faites cela… 
+
+
+ a| 
+Portée
+ a| 
+Sélectionnez le type de ressource à protéger :
+
+** Datastore
+** Ordinateurs virtuels
+
+
+
+
+ a| 
+Data Center
+ a| 
+Accédez aux machines virtuelles ou aux datastores
+
+
+
+ a| 
+Entités disponibles
+ a| 
+Sélectionnez les ressources que vous souhaitez protéger, puis cliquez sur > pour déplacer vos sélections dans la liste entités sélectionnées
+
+|===
++
+Lorsque vous cliquez sur *Suivant*, le système vérifie d'abord que la sauvegarde et la restauration BlueXP sont gérées et qu'elles sont compatibles avec le stockage sur lequel se trouvent les ressources sélectionnées.
+
++
+Si le message <resource-name> sélectionné ne correspond pas à la sauvegarde et à la restauration BlueXP pour les VM compatibles s'affiche, une ressource sélectionnée n'est pas compatible avec la sauvegarde et la restauration BlueXP pour les VM.
+
+. Sur la page *Spanning Disks*, sélectionnez une option pour les machines virtuelles avec plusieurs VMDK sur plusieurs datastores :
++
+** Toujours exclure tous les datastores de type « Spanning datastore » [c'est la valeur par défaut pour les datastores.]
+** Toujours inclure tous les datastores Spanning [il s'agit de la valeur par défaut pour les machines virtuelles.]
+** Sélectionnez manuellement les datastores à inclure.
+
+
+. Sur la page *Policies*, sélectionnez ou créez une ou plusieurs stratégies de sauvegarde, comme indiqué dans le tableau suivant :
++
+[cols="50,50"]
+|===
+| Pour utiliser… | Faites cela… 
+
+
+ a| 
+Stratégie existante
+ a| 
+Sélectionnez une ou plusieurs stratégies dans la liste.
+
+
+
+ a| 
+Une nouvelle politique
+ a| 
+.. Cliquez sur *Créer*.
+.. Suivez l'assistant Nouvelle stratégie de sauvegarde pour revenir à l'assistant Créer un groupe de ressources.
+
+
+|===
+. Sur la page *Schedules*, configurez la planification de sauvegarde pour chaque stratégie sélectionnée.
++
+Dans le champ heure de début, entrez une date et une heure autres que zéro. La date doit être au format jour/mois/année. Vous devez renseigner chaque champ. La sauvegarde et la restauration BlueXP pour les VM créent des planifications dans le fuseau horaire où la sauvegarde et la restauration BlueXP pour les VM sont déployées. Vous pouvez modifier le fuseau horaire à l'aide de l'interface graphique de sauvegarde et de restauration BlueXP pour les VM.
+
++
+image:Schedules.png[""]
+
+. Passez en revue le *résumé*, puis cliquez sur *Terminer*.
++
+Avant de cliquer sur Terminer, vous pouvez revenir à n'importe quelle page de l'assistant et modifier les informations.
+
++
+Lorsque vous cliquez sur Terminer, le nouveau groupe de ressources est ajouté à la liste des groupes de ressources.
+
++
+[NOTE]
+====
+Si l'opération de mise en veille échoue pour l'une des machines virtuelles de la sauvegarde, la sauvegarde est marquée comme non cohérente avec les machines virtuelles, même si la règle sélectionnée a la cohérence machine virtuelle sélectionnée. Dans ce cas, il est possible que certaines des machines virtuelles aient été suspendues avec succès.
+
+====
+

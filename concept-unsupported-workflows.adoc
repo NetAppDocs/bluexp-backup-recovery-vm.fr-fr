@@ -1,0 +1,22 @@
+---
+permalink: concept-unsupported-workflows.html 
+sidebar: sidebar 
+keywords: unsupported, workflows 
+summary: Workflows non pris en charge 
+---
+= Workflows non pris en charge
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les workflows suivants ne sont pas pris en charge dans la sauvegarde et la restauration BlueXP pour les machines virtuelles version 1.0 :
+
+* Attacher et détacher les VMDK
+* Monter et démonter les datastores
+* Restaurez les fichiers et les dossiers invités
+* Restaurer à un autre emplacement
+* Ajoutez un système de stockage à l'aide de la méthode d'authentification « certificat »
+* Ajouter des volumes NetApp ONTAP FlexGroup
+

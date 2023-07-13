@@ -1,0 +1,36 @@
+---
+permalink: task-back-up-resource-groups-on-demand.html 
+sidebar: sidebar 
+keywords: back up, resource, groups, demand 
+summary: 'Les opérations de sauvegarde sont effectuées sur toutes les ressources définies dans un groupe de ressources. Si une stratégie est associée à un groupe de ressources et qu"une planification est configurée, les sauvegardes sont automatiquement effectuées en fonction de la planification.' 
+---
+= Sauvegarder des groupes de ressources à la demande
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les opérations de sauvegarde sont effectuées sur toutes les ressources définies dans un groupe de ressources. Si une stratégie est associée à un groupe de ressources et qu'une planification est configurée, les sauvegardes sont automatiquement effectuées en fonction de la planification.
+
+.Avant de commencer
+* Vous devez avoir créé un groupe de ressources associé à une stratégie.
++
+[NOTE]
+====
+Ne lancez pas de tâche de sauvegarde à la demande lorsqu'une tâche de sauvegarde et de restauration BlueXP est déjà en cours d'exécution pour la base de données MySQL pour les machines virtuelles. Utilisez la console de maintenance pour voir le planning de sauvegarde configuré pour la base de données MySQL.
+
+====
++
+.Étapes
+.. Dans le volet de gauche du navigateur de la page du client Web vCenter, cliquez sur menu:sauvegarde et restauration BlueXP pour les machines virtuelles[groupes de ressources], sélectionnez un groupe de ressources, puis cliquez sur *Exécuter maintenant* pour lancer la sauvegarde.
++
+image:vSphere client_resource group.png[""]
+
+.. Si plusieurs stratégies sont configurées dans le groupe de ressources, sélectionnez la stratégie à utiliser pour cette opération de sauvegarde dans la boîte de dialogue Sauvegarder maintenant.
+.. Cliquez sur *OK* pour lancer la sauvegarde.
+.. Si l'opération de mise en veille échoue pour l'une des machines virtuelles de la sauvegarde, la sauvegarde se termine par un avertissement et est marquée comme non cohérente pour la machine virtuelle, même si la règle sélectionnée contient la cohérence de la machine virtuelle. Dans ce cas, il est possible que certaines des machines virtuelles aient été suspendues avec succès. Dans le moniteur de tâches, les détails de l'ordinateur virtuel en échec affichent la mise en veille comme ayant échoué.
+
+
+

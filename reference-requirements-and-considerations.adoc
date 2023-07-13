@@ -1,0 +1,34 @@
+---
+permalink: reference-requirements-and-considerations.html 
+sidebar: sidebar 
+keywords: requirements, considerations 
+summary: 'Vous devez connaître plusieurs exigences et considérations avant d"utiliser la sauvegarde et la restauration BlueXP pour les machines virtuelles.' 
+---
+= Configuration requise et considérations
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'utiliser la sauvegarde et la restauration BlueXP pour les machines virtuelles, vous devez connaître plusieurs exigences et considérations :
+
+* Que vous utilisiez le plug-in pour protéger les données sur des systèmes Windows ou Linux, BlueXP est déployé en tant que VM Linux.
+* Vous devez déployer la sauvegarde et la restauration BlueXP pour les machines virtuelles sur VMC sur AWS.
++
+La sauvegarde et la restauration BlueXP pour les machines virtuelles et VMC doivent utiliser le même fuseau horaire. Les planifications de sauvegarde sont exécutées dans le fuseau horaire dans lequel la sauvegarde et la restauration BlueXP pour les machines virtuelles sont déployées. VMC rapporte les données dans le fuseau horaire dans lequel se trouve le VMC. Par conséquent, si la sauvegarde et la restauration BlueXP pour les machines virtuelles et VMC se trouvent dans différents fuseaux horaires, les données du tableau de bord de sauvegarde et de restauration BlueXP pour les machines virtuelles peuvent ne pas être identiques à celles des rapports.
+
+* Vous ne devez pas déployer la sauvegarde et la restauration BlueXP pour les machines virtuelles situées dans un dossier dont le nom comporte des caractères spéciaux.
++
+Le nom du dossier ne doit pas contenir les caractères spéciaux suivants : $!@#%^&()_+{}';.,*?"<>|
+
+* Vous devez déployer et enregistrer une instance unique distincte de sauvegarde et de restauration BlueXP pour les machines virtuelles pour chaque VMC sur AWS.
++
+** Chaque VMC sur AWS doit être associé à une instance distincte de BlueXP Backup and Recovery pour les machines virtuelles.
+** Chaque instance de sauvegarde et de restauration BlueXP pour les VM doit être déployée en tant que VM Linux distincte.
++
+Par exemple, si vous souhaitez effectuer des sauvegardes à partir de six instances différentes de VMC sur AWS, vous devez déployer six instances de sauvegarde et de restauration BlueXP pour les machines virtuelles sur six hôtes, et chaque VMC sur AWS doit être associé à une instance unique de sauvegarde et de restauration BlueXP pour les machines virtuelles.
+
+
+
+

@@ -1,0 +1,43 @@
+---
+permalink: task-add-storage.html 
+sidebar: sidebar 
+keywords: add, storage 
+summary: 'Avant de pouvoir sauvegarder ou restaurer des machines virtuelles, vous devez ajouter « Amazon FSX pour NetApp ONTAP » ou « Amazon FSX pour NetApp ONTAP SVM » en tant que système de stockage. L"ajout de stockage permet à BlueXP de sauvegarder et de restaurer des VM de reconnaître et de gérer les opérations de sauvegarde et de restauration dans vCenter.' 
+---
+= Ajouter du stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avant de pouvoir sauvegarder ou restaurer des machines virtuelles, vous devez ajouter « Amazon FSX pour NetApp ONTAP » ou « Amazon FSX pour NetApp ONTAP SVM » en tant que système de stockage. L'ajout de stockage permet à BlueXP de sauvegarder et de restaurer des VM de reconnaître et de gérer les opérations de sauvegarde et de restauration dans vCenter.
+
+.Avant de commencer
+Le serveur ESXi, la sauvegarde et la restauration BlueXP pour les VM et chaque vCenter doivent être synchronisés en même temps. Si vous essayez d'ajouter du stockage mais que les paramètres d'heure de vos vCenters ne sont pas synchronisés, l'opération peut échouer avec une erreur de certificat Java.
+
+.Description de la tâche
+La sauvegarde et la restauration BlueXP pour les VM effectuent des opérations de sauvegarde et de restauration sur les VM de stockage directement connectées et sur les VM de stockage d'un cluster de stockage.
+
+* Les noms des VM de stockage doivent être résolus sur les LIF de gestion.
++
+Si vous avez ajouté des entrées d'hôte etc pour les noms de machines virtuelles de stockage dans la sauvegarde et la restauration BlueXP pour les machines virtuelles, vous devez vérifier qu'elles peuvent également être résolues à partir de l'appliance virtuelle.
+
++
+Si vous ajoutez un serveur virtuel de stockage portant un nom qui ne peut pas être résolu sur la LIF de gestion, les tâches de sauvegarde planifiées échouent, car le plug-in ne peut pas détecter les datastores ou les volumes de cette machine virtuelle de stockage. Si cela se produit, ajoutez la VM de stockage à la sauvegarde et à la restauration BlueXP pour les VM et spécifiez la LIF de gestion ou ajoutez un cluster qui contient la VM de stockage et spécifiez la LIF de cluster management.
+
+* Les détails de l'authentification du stockage ne sont pas partagés entre plusieurs instances de sauvegarde et de restauration BlueXP pour les machines virtuelles, ni entre Windows SnapCenter Server et la sauvegarde et restauration BlueXP pour les machines virtuelles sur vCenter.
+
+
+.Étapes
+. Dans le volet navigateur de gauche du client vSphere, cliquez sur *Storage Systems*.
+. Sur la page systèmes de stockage, cliquez sur *Ajouter*.
++
+image:vSphere client.png[""]
+
+. Dans l'assistant *Ajouter un système de stockage*, entrez les informations de base sur la machine virtuelle de stockage ou le cluster.
+. Sélectionnez la méthode d'authentification *Credentials* et connectez-vous en tant qu'administrateur Amazon FSX.
+. Cliquez sur *Ajouter*.
+
+
+Si vous avez ajouté un cluster de stockage, toutes les machines virtuelles de stockage de ce cluster sont automatiquement ajoutées. Les machines virtuelles de stockage ajoutées automatiquement (parfois appelées machines virtuelles de stockage « implicites ») sont affichées sur la page de résumé du cluster avec un tiret (-) au lieu d'un nom d'utilisateur. Les noms d'utilisateur sont affichés uniquement pour les entités de stockage explicites.

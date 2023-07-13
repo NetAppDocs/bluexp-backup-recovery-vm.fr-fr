@@ -1,0 +1,49 @@
+---
+settings:
+  name: BlueXP backup and recovery for VMs
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: fr-fr,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,it-it
+sidebar:
+  entries:
+  - title: Documentation sur la sauvegarde et la restauration BlueXP pour les VM
+    url: "/index.html"
+  - title: Notes de mise à jour
+    url: "/whats-new.html"
+  - title: Commencez
+    entries:
+    - title: Découvrez la sauvegarde et la restauration BlueXP pour les machines virtuelles
+      url: "/concept-bluexp-backup-and-recovery-for-virtual-machines-on-amazon-fsx.html"
+    - title: Workflows non pris en charge
+      url: "/concept-unsupported-workflows.html"
+  - title: Déployez la sauvegarde et la restauration BlueXP pour les VM
+    entries:
+    - title: Configuration requise et considérations
+      url: "/reference-requirements-and-considerations.html"
+    - title: Télécharger l'OVA
+      url: "/task-download-the-open-virtual-appliance.html"
+    - title: Déployez la sauvegarde et la restauration BlueXP pour les VM
+      url: "/task-deploy-bluexp-backup-and-recovery-for-vms.html"
+  - title: Sauvegarde du datastore NFS dans Amazon FSX
+    entries:
+    - title: Ajouter du stockage
+      url: "/task-add-storage.html"
+    - title: Création de règles de sauvegarde
+      url: "/task-create-backup-policies-for-vms-and-datastores.html"
+    - title: Créer des groupes de ressources
+      url: "/task-create-resource-groups.html"
+    - title: Sauvegarder des groupes de ressources à la demande
+      url: "/task-back-up-resource-groups-on-demand.html"
+  - title: Restauration des machines virtuelles à partir d'Amazon FSX
+    url: "/task-restore-virtual-machines-from-amazon-fsx.html"
+  - title: Connaissances et support
+    entries:
+    - title: S'inscrire pour obtenir de l'aide
+      url: "/task-support-registration.html"
+    - title: Obtenez de l'aide
+      url: "/task-get-help.html"
+  - title: Mentions légales
+    url: "/legal-notices.html"
