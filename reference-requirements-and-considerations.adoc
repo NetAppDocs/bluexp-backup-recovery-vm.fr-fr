@@ -31,4 +31,6 @@ Par exemple, si vous souhaitez effectuer des sauvegardes à partir de six instan
 
 
 
+* Sur la console vmc.vmware.com, ouvrez les ports pare-feu pour permettre à l'adresse IP publique de la passerelle de calcul de communiquer via TCP 443 avec vCenter sur le réseau de gestion.
+* Sur la console AWS, vous devez mettre à jour le groupe de sécurité du VPC dans lequel FSX pour ONTAP s'exécute pour permettre la sauvegarde et la restauration BlueXP pour les machines virtuelles d'accéder à FSX pour ONTAP.
 

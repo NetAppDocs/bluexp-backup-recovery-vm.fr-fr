@@ -11,7 +11,7 @@ summary: Pour protéger les VM, les datastores et les bases de données cohéren
 
 
 [role="lead"]
-Pour protéger les VM, les datastores et les bases de données cohérentes au niveau des applications sur les machines virtualisées, vous devez déployer BlueXP Backup and Recovery pour les VM.
+Pour protéger les machines virtuelles et les datastores sur les machines virtualisées, vous devez déployer la sauvegarde et la restauration BlueXP pour les machines virtuelles.
 
 .Avant de commencer
 ++ ++
@@ -30,9 +30,8 @@ Le déploiement OVA est pris en charge dans VMware vCenter 8.0 et versions ulté
 * Vous devez disposer d'un certificat avec des fichiers de clé publique et privée valides. Pour plus d'informations, reportez-vous aux articles de la section gestion des certificats de stockage.
 * Vous devez vous être déconnecté de toutes les sessions du navigateur du client vSphere et avoir supprimé le cache du navigateur pour éviter tout problème de cache du navigateur lors du déploiement de la sauvegarde et de la restauration BlueXP pour les VM.
 * Vous devez avoir activé transport Layer Security (TLS) dans vCenter. Voir la documentation VMware.
+* Vous devez avoir déployé BlueXP Backup and Recovery pour les machines virtuelles dans le même fuseau horaire que vCenter.
 
-
-Déployez BlueXP Backup and Recovery pour les VM dans le même fuseau horaire que vCenter.
 
 .Étapes
 . Pour VMware vCenter 7.0.3 et les versions ultérieures, suivez les étapes de la section Télécharger l'appliance virtuelle ouverte (OVA) pour importer les certificats dans vCenter.
