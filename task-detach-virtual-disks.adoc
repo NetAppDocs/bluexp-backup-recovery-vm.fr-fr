@@ -1,0 +1,35 @@
+---
+permalink: task-detach-virtual-disks.html 
+sidebar: sidebar 
+keywords: mount, datastores 
+summary: Reliez un ou plusieurs VMDK à la machine virtuelle. 
+---
+= Détachez un disque virtuel
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Une fois que vous avez attaché un disque virtuel pour restaurer des fichiers individuels, vous pouvez détacher le disque virtuel de la machine virtuelle parent.
+
+.Étapes
+. Dans le client VMware vSphere, accédez à image:menu_icon.png[""] > *Inventaire* > *hôtes et clusters*.
+. Dans le volet gauche du navigateur, cliquez avec le bouton droit de la souris sur une *machine virtuelle*, puis sélectionnez *BlueXP Backup and Recovery for VMs* dans la liste déroulante, puis sélectionnez *Detach Virtual Disk(s)* (détacher le(s) disque(s) virtuel(s).
+. Dans la boîte de dialogue *détacher le disque virtuel*, sélectionnez un ou plusieurs disques à détacher, puis cochez la case *détacher le ou les disques sélectionnés*, puis cliquez sur *détacher*.
+. Facultatif : surveillez la progression de l'opération dans la section *tâches récentes*.
++
+Actualiser l'écran pour afficher les informations mises à jour.
+
+. Vérifiez que le disque virtuel est détaché en effectuant les opérations suivantes :
++
+.. Cliquez sur *Menu* dans la barre d'outils, puis sélectionnez *VM et modèles* dans la liste déroulante.
+.. Dans le volet gauche du navigateur, cliquez avec le bouton droit de la souris sur une VM, puis sélectionnez *Modifier les paramètres* dans la liste déroulante.
+.. Dans la fenêtre *Modifier les paramètres*, développez la liste de chaque disque dur pour afficher la liste des fichiers de disque.
++
+La page Modifier les paramètres répertorie les disques de la machine virtuelle. Vous pouvez développer les détails de chaque disque dur pour afficher la liste des disques virtuels connectés.
+
+
+
+

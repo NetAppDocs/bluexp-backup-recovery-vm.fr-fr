@@ -1,0 +1,29 @@
+---
+permalink: task-unmount-datastores.html 
+sidebar: sidebar 
+keywords: mount, datastores 
+summary: 'Le démontage d"un datastore supprime l"accès de l"hôte au stockage.' 
+---
+= Démontez les datastores
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez démonter une sauvegarde lorsque vous n'avez plus besoin d'accéder aux fichiers du datastore.
+
+.Étapes
+. Dans le client VMware vSphere, accédez à image:menu_icon.png[""] > *Inventaire* > *stockage*.
+. Dans le volet gauche du navigateur, cliquez avec le bouton droit de la souris sur un datastore, puis sélectionnez *BlueXP Backup and Recovery for VMs* dans la liste déroulante, puis sélectionnez *Unmount* dans la liste déroulante secondaire.
++
+
+NOTE: Assurez-vous de sélectionner le datastore approprié à démonter. Sinon, vous pourriez avoir un impact sur le travail de production.
+
+. Dans la boîte de dialogue *Unmount Backup*, sélectionnez un datastore, cochez la case *Unmount the datastore* et cliquez sur *Unmount*.
+. Facultatif : pour vérifier que le datastore est démonté, dans la barre d'outils du client VMware vSphere, cliquez sur *sauvegarde et restauration BlueXP pour les machines virtuelles*.
++
+Le datastore que vous avez démonté s'affiche dans la mosaïque *activités récentes du travail* du tableau de bord.
+
+

@@ -2,7 +2,7 @@
 permalink: concept-bluexp-backup-and-recovery-for-virtual-machines-on-amazon-fsx.html 
 sidebar: sidebar 
 keywords: bluexp, backup, recovery, virtual machines, amazon fsx 
-summary: 'La sauvegarde et la restauration BlueXP pour les VM est une appliance virtuelle autonome (format d"appliance virtuelle ouverte) qui fournit des services de protection des données pour les VM et les datastores sur VMware Cloud on AWS et Amazon FSX for NetApp ONTAP. Vous pouvez utiliser la sauvegarde et la restauration BlueXP pour les VM pour sauvegarder les datastores et restaurer les machines virtuelles à leur emplacement d"origine.' 
+summary: 'La sauvegarde et la restauration BlueXP pour les VM est une appliance virtuelle autonome (format d"appliance virtuelle ouverte) qui fournit des services de protection des données pour les VM et les datastores sur VMware Cloud on AWS et Amazon FSX for NetApp ONTAP. Vous pouvez utiliser la sauvegarde et la restauration BlueXP pour les machines virtuelles pour sauvegarder les datastores et restaurer les machines virtuelles et les disques de machines virtuelles à leur emplacement d"origine ou autre.' 
 ---
 = Sauvegarde et restauration BlueXP pour les machines virtuelles sur Amazon FSX
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 'La sauvegarde et la restauration BlueXP pour les VM est une appliance 
 
 
 [role="lead"]
-La sauvegarde et la restauration BlueXP pour les VM est une appliance virtuelle autonome (format d'appliance virtuelle ouverte) qui fournit des services de protection des données pour les VM et les datastores sur VMware Cloud on AWS et Amazon FSX for NetApp ONTAP. Vous pouvez utiliser la sauvegarde et la restauration BlueXP pour les VM pour sauvegarder les datastores et restaurer les machines virtuelles à leur emplacement d'origine.
+La sauvegarde et la restauration BlueXP pour les VM est une appliance virtuelle autonome (format d'appliance virtuelle ouverte) qui fournit des services de protection des données pour les VM et les datastores sur VMware Cloud on AWS et Amazon FSX for NetApp ONTAP.
 
 * Vous pouvez sauvegarder uniquement des datastores de type NFS sur Amazon FSX.
 * Vous devez exécuter ONTAP 9.10 ou une version ultérieure pour sauvegarder les datastores NFS.
 * VMware Cloud s'accompagne d'un rôle CloudAdmin prédéfini. Le rôle CloudAdmin dispose des privilèges nécessaires pour créer et gérer les charges de travail SDDC et les objets associés, tels que les stratégies de stockage, les bibliothèques de contenu, les balises vSphere et les pools de ressources.
-* Vous pouvez restaurer des machines virtuelles et des VMDK à leur emplacement actuel (restauration sur place).
+* Vous pouvez restaurer des machines virtuelles et des VMDK à leur emplacement actuel/alternatif.
 

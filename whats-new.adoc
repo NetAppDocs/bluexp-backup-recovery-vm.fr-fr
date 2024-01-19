@@ -15,6 +15,22 @@ Découvrez les nouveautés de BlueXP pour la sauvegarde et la restauration des m
 
 
 
+== 18 janvier 2024
+
+
+
+=== Améliorations apportées à la sauvegarde et à la restauration BlueXP pour les machines virtuelles
+
+Les fonctionnalités suivantes sont prises en charge par la sauvegarde et la restauration BlueXP pour les machines virtuelles 1.1 :
+
+* Monter et démonter les datastores
+* Attacher et détacher les VMDK
+* Restaurez des machines virtuelles à un autre emplacement
+* Activez le verrouillage des snapshots pour vous assurer que les copies Snapshot ne sont pas falsifiées avant une heure spécifiée.
+
+
+
+
 == 13 juillet 2023
 
 

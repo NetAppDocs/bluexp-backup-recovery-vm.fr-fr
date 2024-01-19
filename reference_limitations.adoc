@@ -1,0 +1,19 @@
+---
+permalink: reference-limitations.html 
+sidebar: sidebar 
+keywords: limitations 
+summary: 'Vous devez connaître les limites avant d"utiliser la sauvegarde et la restauration BlueXP pour les machines virtuelles.' 
+---
+= Limites connues
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les limitations connues identifient les fonctions qui ne sont pas prises en charge par cette version du produit ou qui ne sont pas compatibles avec lui. Examinez attentivement ces limites.
+
+* La sauvegarde et la restauration BlueXP pour les VM ne prennent pas en charge les sauvegardes quotidiennes automatiques d'Amazon FSX pour ONTAP.
+* La limite maximale de datastores pouvant être montés est de quatre.
+* Si le verrouillage des snapshots est activé, la sauvegarde et la restauration BlueXP pour les VM indiquent deux fois l'emplacement secondaire. Ce problème a été résolu dans les versions ONTAP 9.14.1RC1, ONTAP 9.13.1P4 - ONTAP 9.13.1P5 et ONTAP 9.12.1P8 - ONTAP 9.12.1P9.
+

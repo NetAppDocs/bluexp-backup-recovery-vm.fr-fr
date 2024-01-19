@@ -38,3 +38,5 @@ indexpage:
     - title: Restaurez les machines virtuelles et les VMDK des datastores FSX pour
         ONTAP
       url: https://www.youtube.com/watch?v=RVLYP0lguxkM
+    - title: Protection des charges de travail Oracle et MS® SQL
+      url: https://community.netapp.com/t5/Tech-ONTAP-Blogs/Protect-Oracle-MS-SQL-workloads-using-NetApp-SnapCenter-in-VMware-Cloud-on-AWS/ba-p/449168
